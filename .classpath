@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src/main/java"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER">
+		<attributes>
+			<attribute name="owner.project.facets" value="java"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.web.container">
+		<attributes>
+			<attribute name="org.eclipse.jdt.launching.CLASSPATH_ATTR_LIBRARY_PATH_ENTRY" value="C:/zwu/hystrix/my-app/target/my-app/WEB-INF/lib"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.module.container"/>
+	<classpathentry kind="lib" path="C:/Users/I303152/.m2/repository/com/netflix/hystrix/hystrix-core/1.4.9/hystrix-core-1.4.9.jar" sourcepath="C:/Users/I303152/.m2/repository/com/netflix/hystrix/hystrix-core/1.4.8/hystrix-core-1.4.8-sources.jar"/>
+	<classpathentry kind="lib" path="C:/Users/I303152/.m2/repository/com/netflix/archaius/archaius-core/0.4.1/archaius-core-0.4.1.jar"/>
+	<classpathentry kind="lib" path="C:/Users/I303152/.m2/repository/io/reactivex/rxjava/1.0.7/rxjava-1.0.7.jar"/>
+	<classpathentry kind="lib" path="C:/Users/I303152/.m2/repository/org/slf4j/slf4j-api/1.7.0/slf4j-api-1.7.0.jar"/>
+	<classpathentry kind="lib" path="C:/Users/I303152/.m2/repository/commons-configuration/commons-configuration/1.10/commons-configuration-1.10.jar"/>
+	<classpathentry kind="lib" path="C:/Users/I303152/.m2/repository/commons-lang/commons-lang/2.6/commons-lang-2.6.jar"/>
+	<classpathentry kind="lib" path="C:/Users/I303152/.m2/repository/commons-logging/commons-logging/1.2/commons-logging-1.2.jar"/>
+	<classpathentry kind="lib" path="C:/Users/I303152/.m2/repository/org/hdrhistogram/HdrHistogram/2.1.4/HdrHistogram-2.1.4.jar"/>
+	<classpathentry kind="output" path="build/classes"/>
+</classpath>
