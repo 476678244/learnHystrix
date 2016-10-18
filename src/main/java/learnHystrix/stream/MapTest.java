@@ -17,6 +17,10 @@ public class MapTest {
 		List<Integer> nums = Arrays.asList(1, 2, 3, 4);
 		List<Integer> squareNums = nums.stream().map(n -> n * n).collect(Collectors.toList());
 		System.out.println(squareNums);
+		
+		// 使用lambda表达式
+		List<Integer> costBeforeTax = Arrays.asList(100, 200, 300, 400, 500);
+		costBeforeTax.stream().map((cost) -> cost + .12*cost).forEach(System.out::println);
 
 	}
 
