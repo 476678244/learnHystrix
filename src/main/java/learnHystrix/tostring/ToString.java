@@ -10,6 +10,7 @@ import java.util.Set;
  */
 public class ToString {
     public static void main(String[] args) {
+        System.out.println("E".equals("F")|| ("F").equals("F"));
         Map<Long, Set<Long>> obj = new HashMap<>();
         obj.put(1L, new HashSet<>());
         obj.put(2L, new HashSet<>());
