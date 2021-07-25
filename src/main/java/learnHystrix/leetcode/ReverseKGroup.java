@@ -1,4 +1,76 @@
 package learnHystrix.leetcode;
 
 public class ReverseKGroup {
+
+    /*  给你一个链表，每k个节点一组进行翻转，请你返回翻转后的链表。
+        k是一个正整数，它的值小于或等于链表的长度。
+        如果节点总数不是k的整数倍，那么请将最后剩余的节点保持原有顺序。
+            nice to have：
+                1. 你可以设计一个只使用常数额外空间的算法来解决此问题吗？
+                2. 你不能只是单纯的改变节点内部的值，而是需要实际进行节点交换。
+    */
+    public static class ListNode {
+        int val;
+        ListNode next;
+
+        ListNode(int val) {
+            this.val = val;
+        }
+
+        ListNode(int val, ListNode next) {
+            this.val = val;
+            this.next = next;
+        }
+    }
+
+    public static ListNode sample() {
+        ListNode n5 = new ListNode(5);
+        ListNode n4 = new ListNode(4, n5);
+        ListNode n3 = new ListNode(3, n4);
+        ListNode n2 = new ListNode(2, n3);
+        return new ListNode(1, n2);
+    }
+
+    public static void printList(ListNode head) {
+        ListNode index = head;
+        System.out.print(index.val);
+        while (index.next != null) {
+            index = index.next;
+            System.out.print(index.val);
+        }
+        System.out.println("");
+    }
+
+    public static void main(String[] args) {
+        printList(sample());
+        ReverseKGroup obj = new ReverseKGroup();
+        // test case 1:
+        // 12345
+        // 21435
+        // 32145
+        // 43215
+        System.out.println("test case 1");
+        printList(obj.reverseKGroup(sample(), 1));
+        printList(obj.reverseKGroup(sample(), 2));
+        printList(obj.reverseKGroup(sample(), 3));
+        printList(obj.reverseKGroup(sample(), 4));
+        // test case 2:
+        // 12345
+        // 21435
+        // 41235
+        // 32145
+        System.out.println("test case 2");
+        ListNode round1 = obj.reverseKGroup(sample(), 1);
+        printList(round1);
+        ListNode round2 = obj.reverseKGroup(round1, 2);
+        printList(round2);
+        ListNode round3 = obj.reverseKGroup(round2, 3);
+        printList(round3);
+        ListNode round4 = obj.reverseKGroup(round3, 4);
+        printList(round4);
+    }
+
+    public ListNode reverseKGroup(ListNode head, int k) {
+        return new ListNode(0);
+    }
 }
