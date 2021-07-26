@@ -43,6 +43,7 @@ public class ReverseKGroup {
 
     public static void main(String[] args) {
         printList(sample());
+        // 12345
         ReverseKGroup obj = new ReverseKGroup();
         // test case 1:
         // 12345
@@ -70,7 +71,81 @@ public class ReverseKGroup {
         printList(round4);
     }
 
+    /*
+     * 12345, 2
+     * 21 43 5
+     * len -> 5
+     * group_size -> 2
+     * group_len -> 2
+     * reverse_group(5, false, next -> null): 5
+     * reverse_group(34, true, next -> 5): 4
+     * reverse_group(12, true, next -> 4): 2
+     * */
     public ListNode reverseKGroup(ListNode head, int k) {
-        return new ListNode(0);
+        int listLen = 0;
+        // compute groupLen
+        ListNode cursor = head;
+        while (cursor.next != null) {
+            listLen += 1;
+            cursor = cursor.next;
+        }
+        int groupSize = listLen / k + 1;
+        System.out.print("groupSize:" + groupSize);
+        System.out.println("k:" + k);
+        //
+        cursor = head;
+        ListNode finalHead = null;
+        ListNode lastTail = null;
+        for (int i = 0; i < groupSize; i++) {
+            if (i < groupSize - 1) {
+                ListNode nextCursor = groupNext(cursor, k);
+                if (finalHead == null) {
+                    finalHead = reverseGroup(cursor, true, groupNext(cursor, k), k);
+                    lastTail = groupNext(finalHead, k - 1);
+                } else {
+                    lastTail.next = reverseGroup(cursor, true, groupNext(cursor, k), k);
+                    lastTail = groupNext(lastTail.next, k - 1);
+                }
+                cursor = nextCursor;
+            }
+            if (i == groupSize - 1) {
+                lastTail.next = reverseGroup(cursor, false, null, k);
+            }
+        }
+        return finalHead;
+    }
+
+    public ListNode groupNext(ListNode head, int groupLen) {
+        ListNode cursor = head;
+        while (groupLen >= 1) {
+            groupLen -= 1;
+            cursor = cursor.next;
+        }
+        return cursor;
+    }
+
+    /*
+     * 1234
+     * head -> 1
+     * 2.next -> head
+     * 1.next -> 2.next
+     * tail -> 1
+     * 3.next -> head
+     * */
+    public ListNode reverseGroup(ListNode head, boolean isDoReverse, ListNode next, int groupLen) {
+        if (isDoReverse == false) {
+            return head;
+        }
+        ListNode groupHead = head;
+        ListNode groupCursor = head;
+        while (groupLen > 1) {
+            groupLen -= 1;
+            ListNode nextCursor = groupCursor.next.next;
+            groupCursor.next.next = groupHead;
+            groupHead = groupCursor.next;
+            groupCursor.next = nextCursor;
+        }
+        groupCursor.next = next;
+        return groupHead;
     }
 }
